@@ -9,15 +9,10 @@ services:
       - key: NODE_ENV
         value: production
       - key: DB_DIR
-        value: /etc/data
+        value: .
       - key: ADMIN_USERNAME
         sync: false
-        placeholder: "請輸入管理員帳號"
+        placeholder: "ohhaewon030225"
       - key: ADMIN_PASSWORD
         sync: false
-        placeholder: "請輸入管理員密碼"
-    disk:
-      name: queue-data
-      mountPath: /etc/data
-      sizeGB: 1
-
+        placeholder: "nmixxbestleader"
