@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: live-waitlist-system
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_DIR
+        value: /etc/data
+      - key: ADMIN_USERNAME
+        sync: false
+        placeholder: "請輸入管理員帳號"
+      - key: ADMIN_PASSWORD
+        sync: false
+        placeholder: "請輸入管理員密碼"
+    disk:
+      name: queue-data
+      mountPath: /etc/data
+      sizeGB: 1
+
