@@ -4,8 +4,15 @@ import { Server } from "socket.io";
 import { createServer as createViteServer } from "vite";
 import Database from "better-sqlite3";
 import path from "path";
+import fs from "fs";
 
-const db = new Database("queue.db");
+// Database path handling for Render persistent disk
+const dbDir = process.env.DB_DIR || ".";
+if (dbDir !== "." && !fs.existsSync(dbDir)) {
+  fs.mkdirSync(dbDir, { recursive: true });
+}
+const dbPath = path.join(dbDir, "queue.db");
+const db = new Database(dbPath);
 
 // Initialize Database
 db.exec(`
