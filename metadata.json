@@ -1,0 +1,5 @@
+{
+  "name": "現場候補排隊系統",
+  "description": "一個實時同步的現場排隊候補系統，支援管理端叫號與顧客端進度追蹤。",
+  "requestFramePermissions": []
+}
